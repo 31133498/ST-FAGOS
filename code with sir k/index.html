@@ -1,224 +1,271 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>ST FAGOS MULTIFUNCTIONAL COMPANY LIMITED</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Custom Styles */
+        .navbar-brand span {
+            font-size: calc(1rem + 0.5vw); /* Responsive font size */
+        }
+
+        .service-card {
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial {
+            font-size: 1rem;
+            padding: 0 1rem;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            z-index: 1000;
+            background: #25d366;
+            border-radius: 50%;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .whatsapp-float img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-img {
+                width: 200px !important;
+                height: 200px !important;
+                margin-bottom: 1.5rem;
+            }
+
+            .display-4 {
+                font-size: 2rem;
+            }
+
+            .btn-lg {
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+            }
+
+            .map-container iframe {
+                height: 250px !important;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+            }
+
+            .whatsapp-float img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <!-- Header Section -->
-<header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
-    <div class="container">
-        <!-- Logo (WhatsApp Image) -->
-        <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="WhatsApp Image 2025-02-12 at 17.38.25_f6d2e8e8.jpg" alt="Brand Logo" class="me-2" 
-                 style="width: 50px; height: 50px; object-fit: contain;">
-            <span class="fw-bold text-primary">ST FAGOS MULTIFUNCTIONAL COMPANY LIMITED</span>
-        </a>
-
-        <!-- Navbar Toggle (For Mobile View) -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Navbar Links (Fully Restored) -->
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="#booking">Booking</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="#faq">FAQs</a></li>
-                <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
-            </ul>
-        </div>
-    </div>
-</header>
-
-
- <!-- Hero Section -->
-<section id="home" class="container-fluid py-5" style="background: #f8f9fa;">
-    <div class="container">
-        <div class="row align-items-center">
-            <!-- Image Column -->
-            <div class="col-md-6 text-center">
+    <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
                 <img src="WhatsApp Image 2025-02-12 at 17.38.25_f6d2e8e8.jpg" 
-                     alt="ST FAGOS Logo" 
-                     class="img-fluid rounded-circle shadow-lg" 
-                     style="width: 300px; height: 300px; object-fit: cover;">
-            </div>
+                     alt="Brand Logo" 
+                     class="img-fluid"
+                     style="width: 50px; height: 50px;">
+                <span class="font-weight-bold text-primary ml-2">ST FAGOS</span>
+            </a>
 
-            <!-- Text Column -->
-            <div class="col-md-6">
-                <h1 class="display-4 font-weight-bold text-primary">Welcome to ST FAGOS</h1>
-                <p class="lead text-muted">Your trusted partner for visa processing and automobile services.</p>
-                <p class="text-muted">
-                    At ST FAGOS, we are committed to delivering exceptional services tailored to your needs. 
-                    Whether you're planning a trip abroad or need reliable automobile solutions, we've got you covered.
-                </p>
-                <div class="mt-4">
-                    <a href="#booking" class="btn btn-primary btn-lg px-4">Book Now</a>
-                    <a href="#services" class="btn btn-outline-secondary btn-lg px-4 ml-2">Learn More</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="container-fluid py-5" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Image Column -->
+                <div class="col-md-6 text-center">
+                    <img src="WhatsApp Image 2025-02-12 at 17.38.25_f6d2e8e8.jpg" 
+                         alt="ST FAGOS Logo" 
+                         class="img-fluid rounded-circle shadow-lg hero-img" 
+                         style="width: 300px; height: 300px; object-fit: cover;">
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-
-<!-- About Us Section -->
-<section id="about" class="py-5" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef);">
-    <div class="container">
-        <div class="row align-items-center">
-            <!-- Text Content -->
-            <div class="col-md-6">
-                <h2 class="display-4 font-weight-bold text-primary mb-4">About Us</h2>
-                <p class="lead text-muted mb-4">
-                    At <strong>ST FAGOS</strong>, we are committed to delivering exceptional services tailored to your needs. 
-                    Whether you're planning a trip abroad or need reliable automobile solutions, we've got you covered.
-                </p>
-                <p class="text-muted">
-                    With years of experience and a dedicated team, we ensure seamless visa processing and top-notch automobile services. 
-                    Our mission is to make your life easier by providing reliable, efficient, and professional solutions.
-                </p>
-                <a href="#services" class="btn btn-primary btn-lg mt-3">Explore Our Services</a>
-            </div>
-
-            <!-- Image or Illustration -->
-            <div class="col-md-6 text-center">
-                <img src="https://via.placeholder.com/500x400" 
-                     alt="About Us Illustration" 
-                     class="img-fluid rounded-lg shadow" 
-                     style="max-width: 100%; height: auto;">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Services Showcase Section -->
-<section class="services-showcase py-5" style="background: linear-gradient(135deg, #1a237e, #0d47a1);">
-    <div class="container">
-        <h2 class="text-center mb-5 display-4 font-weight-bold text-white animate__animated animate__fadeInDown">
-            Powering Progress Through Diverse Excellence
-        </h2>
-
-        <div class="row g-4">
-            <!-- Education Services -->
-            <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
-                <div class="service-card h-100 p-4 rounded-lg shadow-lg" 
-                     style="background: rgba(255,255,255,0.95); transition: all 0.3s ease;">
-                    <div class="icon-container mb-4 text-primary">
-                        <i class="fas fa-graduation-cap fa-3x"></i>
-                    </div>
-                    <img src="39jVynau78u9oFaqh4nJsfKdwLe9SoIs5WXZ8Rqf.png" 
-                         alt="Education Services" 
-                         class="img-fluid rounded-lg mb-4" 
-                         style="width: 100%; height: 200px; object-fit: cover;">
-                    <h3 class="mb-3 font-weight-bold">Future Shapers Academy</h3>
-                    <p class="lead text-dark mb-4">
-                        Building young minds from cradle to career readiness through our integrated education ecosystem:
+                <!-- Text Column -->
+                <div class="col-md-6">
+                    <h1 class="display-4 font-weight-bold text-primary">Welcome to ST FAGOS</h1>
+                    <p class="lead text-muted">Your trusted partner for visa processing and automobile services.</p>
+                    <p class="text-muted">
+                        At ST FAGOS, we are committed to delivering exceptional services tailored to your needs. 
+                        Whether you're planning a trip abroad or need reliable automobile solutions, we've got you covered.
                     </p>
-                    <ul class="list-unstyled">
-                        <li class="mb-2">✓ Premium Nursery-Primary-Secondary Schools</li>
-                        <li class="mb-2">✓ Educational Consultancy Excellence</li>
-                        <li class="mb-2">✓ Curriculum Development Mastery</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Energy Solutions -->
-            <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-1s">
-                <div class="service-card h-100 p-4 rounded-lg shadow-lg" 
-                     style="background: rgba(255,255,255,0.95); transition: all 0.3s ease;">
-                    <div class="icon-container mb-4 text-danger">
-                        <i class="fas fa-gas-pump fa-3x"></i>
+                    <div class="mt-4">
+                        <a href="#booking" class="btn btn-primary btn-lg px-4">Book Now</a>
+                        <a href="#services" class="btn btn-outline-secondary btn-lg px-4 ml-2">Learn More</a>
                     </div>
-                    <img src="young-couple-talking-sales-person-car-showroom-768x512.webp" 
-                         alt="Energy Solutions" 
-                         class="img-fluid rounded-lg mb-4" 
-                         style="width: 100%; height: 200px; object-fit: cover;">
-                    <h3 class="mb-3 font-weight-bold">Energy Pioneers Network</h3>
-                    <p class="lead text-dark mb-4">
-                        Fueling industries and homes with seamless energy solutions:
-                    </p>
-                    <ul class="list-unstyled">
-                        <li class="mb-2">✓ Premium Petroleum Products Distribution</li>
-                        <li class="mb-2">✓ Industrial-Grade Lubricants Supply</li>
-                        <li class="mb-2">✓ Smart Gas Solutions & Safety Management</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Real Estate Mastery -->
-            <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-2s">
-                <div class="service-card h-100 p-4 rounded-lg shadow-lg" 
-                     style="background: rgba(255,255,255,0.95); transition: all 0.3s ease;">
-                    <div class="icon-container mb-4 text-success">
-                        <i class="fas fa-building fa-3x"></i>
-                    </div>
-                    <img src="ProfessionalServicesCareer-1536x1056.jpg" 
-                         alt="Real Estate Mastery" 
-                         class="img-fluid rounded-lg mb-4" 
-                         style="width: 100%; height: 200px; object-fit: cover;">
-                    <h3 class="mb-3 font-weight-bold">Space Crafters Consortium</h3>
-                    <p class="lead text-dark mb-4">
-                        Creating value through strategic property innovation:
-                    </p>
-                    <ul class="list-unstyled">
-                        <li class="mb-2">✓ End-to-End Property Lifecycle Management</li>
-                        <li class="mb-2">✓ Smart Urban Development Solutions</li>
-                        <li class="mb-2">✓ Commercial/Residential Asset Optimization</li>
-                    </ul>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- CTA Section -->
-        <div class="text-center mt-5 pt-4 animate__animated animate__zoomIn">
-            <h3 class="text-white mb-4">Your Vision, Our Execution</h3>
-            <div class="d-flex justify-content-center gap-3">
-                <a href="#contact" class="btn btn-light btn-lg px-5 py-3 rounded-pill shadow">
-                    Partner With Us <i class="fas fa-handshake ms-2"></i>
-                </a>
-                <a href="#services" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill shadow">
-                    Explore All Solutions <i class="fas fa-compass ms-2"></i>
-                </a>
+    <!-- About Us Section -->
+    <section id="about" class="py-5" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef);">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Text Content -->
+                <div class="col-md-6">
+                    <h2 class="display-4 font-weight-bold text-primary mb-4">About Us</h2>
+                    <p class="lead text-muted mb-4">
+                        At <strong>ST FAGOS</strong>, we are committed to delivering exceptional services tailored to your needs. 
+                        Whether you're planning a trip abroad or need reliable automobile solutions, we've got you covered.
+                    </p>
+                    <p class="text-muted">
+                        With years of experience and a dedicated team, we ensure seamless visa processing and top-notch automobile services. 
+                        Our mission is to make your life easier by providing reliable, efficient, and professional solutions.
+                    </p>
+                    <a href="#services" class="btn btn-primary btn-lg mt-3">Explore Our Services</a>
+                </div>
+
+                <!-- Image or Illustration -->
+                <div class="col-md-6 text-center">
+                    <img src="https://via.placeholder.com/500x400" 
+                         alt="About Us Illustration" 
+                         class="img-fluid rounded-lg shadow" 
+                         style="max-width: 100%; height: auto;">
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<style>
-    .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-    }
-    
-    .icon-container {
-        transition: transform 0.3s ease;
-    }
-    
-    .service-card:hover .icon-container {
-        transform: scale(1.1);
-    }
-    
-    .services-showcase {
-        position: relative;
-        overflow: hidden;
-    }
-</style>
+    <!-- Services Showcase Section -->
+    <section class="services-showcase py-5" style="background: linear-gradient(135deg, #1a237e, #0d47a1);">
+        <div class="container">
+            <h2 class="text-center mb-5 display-4 font-weight-bold text-white animate__animated animate__fadeInDown">
+                Powering Progress Through Diverse Excellence
+            </h2>
 
-<!-- Include Animate.css and Font Awesome in head -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+            <div class="row g-4">
+                <!-- Education Services -->
+                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+                    <div class="service-card h-100 p-4 rounded-lg shadow-lg" 
+                         style="background: rgba(255,255,255,0.95);">
+                        <div class="icon-container mb-4 text-primary">
+                            <i class="fas fa-graduation-cap fa-3x"></i>
+                        </div>
+                        <img src="39jVynau78u9oFaqh4nJsfKdwLe9SoIs5WXZ8Rqf.png" 
+                             alt="Education Services" 
+                             class="img-fluid rounded-lg mb-4" 
+                             style="width: 100%; height: 200px; object-fit: cover;">
+                        <h3 class="mb-3 font-weight-bold">Future Shapers Academy</h3>
+                        <p class="lead text-dark mb-4">
+                            Building young minds from cradle to career readiness through our integrated education ecosystem:
+                        </p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ Premium Nursery-Primary-Secondary Schools</li>
+                            <li class="mb-2">✓ Educational Consultancy Excellence</li>
+                            <li class="mb-2">✓ Curriculum Development Mastery</li>
+                        </ul>
+                    </div>
+                </div>
 
+                <!-- Energy Solutions -->
+                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="service-card h-100 p-4 rounded-lg shadow-lg" 
+                         style="background: rgba(255,255,255,0.95);">
+                        <div class="icon-container mb-4 text-danger">
+                            <i class="fas fa-gas-pump fa-3x"></i>
+                        </div>
+                        <img src="young-couple-talking-sales-person-car-showroom-768x512.webp" 
+                             alt="Energy Solutions" 
+                             class="img-fluid rounded-lg mb-4" 
+                             style="width: 100%; height: 200px; object-fit: cover;">
+                        <h3 class="mb-3 font-weight-bold">Energy Pioneers Network</h3>
+                        <p class="lead text-dark mb-4">
+                            Fueling industries and homes with seamless energy solutions:
+                        </p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ Premium Petroleum Products Distribution</li>
+                            <li class="mb-2">✓ Industrial-Grade Lubricants Supply</li>
+                            <li class="mb-2">✓ Smart Gas Solutions & Safety Management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Real Estate Mastery -->
+                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="service-card h-100 p-4 rounded-lg shadow-lg" 
+                         style="background: rgba(255,255,255,0.95);">
+                        <div class="icon-container mb-4 text-success">
+                            <i class="fas fa-building fa-3x"></i>
+                        </div>
+                        <img src="ProfessionalServicesCareer-1536x1056.jpg" 
+                             alt="Real Estate Mastery" 
+                             class="img-fluid rounded-lg mb-4" 
+                             style="width: 100%; height: 200px; object-fit: cover;">
+                        <h3 class="mb-3 font-weight-bold">Space Crafters Consortium</h3>
+                        <p class="lead text-dark mb-4">
+                            Creating value through strategic property innovation:
+                        </p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ End-to-End Property Lifecycle Management</li>
+                            <li class="mb-2">✓ Smart Urban Development Solutions</li>
+                            <li class="mb-2">✓ Commercial/Residential Asset Optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="text-center mt-5 pt-4 animate__animated animate__zoomIn">
+                <h3 class="text-white mb-4">Your Vision, Our Execution</h3>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="#contact" class="btn btn-light btn-lg px-5 py-3 rounded-pill shadow">
+                        Partner With Us <i class="fas fa-handshake ms-2"></i>
+                    </a>
+                    <a href="#services" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill shadow">
+                        Explore All Solutions <i class="fas fa-compass ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="text-center bg-light">
+    <section id="testimonials" class="text-center bg-light py-5">
         <div class="container">
             <h2>What Our Clients Say</h2>
             <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
@@ -241,88 +288,62 @@
             </div>
         </div>
     </section>
-<!-- Contact Section -->
-<section id="contact" class="container my-5">
-    <h2 class="text-center mb-4">Contact Us</h2>
-    <div class="row">
-        <!-- Contact Form -->
-        <div class="col-md-6">
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <div id="status" class="mt-3"></div>
-            </form>
-        </div>
 
-        <!-- Map and Address -->
-        <div class="col-md-6">
-            <h4>Our Office</h4>
-            <p>Block 2, Flat 6, Birth Road, University of Ibadan, Ibadan.</p>
-            <p>Email: contact@stfagos.com</p>
-            <p>Phone: +234 812 871 5316</p>
+    <!-- Contact Section -->
+    <section id="contact" class="container my-5">
+        <h2 class="text-center mb-4">Contact Us</h2>
+        <div class="row">
+            <!-- Contact Form -->
+            <div class="col-md-6">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div id="status" class="mt-3"></div>
+                </form>
+            </div>
 
-            <!-- Embedded Google Map -->
-            <div class="map-container" style="overflow: hidden; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d126603.91865732621!2d3.8421007347384855!3d7.423968490889951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20Birth%20Road%20University%20of%20Ibadan%2C%20Ibadan.!5e0!3m2!1sen!2sng!4v1739510278355!5m2!1sen!2sng" 
-                    width="100%" 
-                    height="300" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+            <!-- Map and Address -->
+            <div class="col-md-6 mt-4 mt-md-0">
+                <h4>Our Office</h4>
+                <p>Block 2, Flat 6, Birth Road, University of Ibadan, Ibadan.</p>
+                <p>Email: contact@stfagos.com</p>
+                <p>Phone: +234 812 871 5316</p>
+
+                <!-- Embedded Google Map -->
+                <div class="map-container" style="overflow: hidden; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d126603.91865732621!2d3.8421007347384855!3d7.423968490889951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20Birth%20Road%20University%20of%20Ibadan%2C%20Ibadan.!5e0!3m2!1sen!2sng!4v1739510278355!5m2!1sen!2sng" 
+                        width="100%" 
+                        height="300" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/2348128715316" target="_blank" class="whatsapp-float">
-    <img src="https://cdn-icons-png.flaticon.com/128/733/733585.png" alt="WhatsApp Chat">
-</a>
+    </section>
 
-<!-- CSS for Floating WhatsApp Button -->
-<style>
-    .whatsapp-float {
-        position: fixed;
-        bottom: 20px;
-        right: 20px; /* Now on the right side */
-        width: 60px;
-        height: 60px;
-        z-index: 1000;
-        background: #25d366;
-        border-radius: 50%;
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .whatsapp-float img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .whatsapp-float:hover {
-        transform: scale(1.1);
-    }
-</style>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/2348128715316" target="_blank" class="whatsapp-float">
+        <img src="https://cdn-icons-png.flaticon.com/128/733/733585.png" alt="WhatsApp Chat">
+    </a>
 
     <!-- Footer -->
-    <footer class="text-center bg-dark text-white">
-        <div class="container p-4">
+    <footer class="text-center bg-dark text-white py-4">
+        <div class="container">
             <p>&copy; 2025 ST FAGOS MULTIFUNCTIONAL COMPANY LIMITED. All rights reserved.</p>
             <div class="social-icons">
                 <a href="#" class="text-white mx-2">Facebook</a>
@@ -334,7 +355,7 @@
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
@@ -356,6 +377,3 @@
     </script>
 </body>
 </html>
-
-
- 

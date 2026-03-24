@@ -15,12 +15,73 @@
 
         .service-card {
             margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
+            min-height: 520px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .service-card img {
+            height: 280px;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            color: white;
+            padding: 25px 20px 20px;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover .card-overlay {
+            transform: translateY(0);
+        }
+
+        .rating {
+            color: #ffc107;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .book-btn {
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .book-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .pulse-btn {
+            animation: pulse 2s infinite;
         }
 
         .testimonial {
@@ -51,6 +112,25 @@
 
         .whatsapp-float:hover {
             transform: scale(1.1);
+        }
+
+        .whatsapp-float::after {
+            content: 'Chat';
+            position: absolute;
+            bottom: -25px;
+            right: 0;
+            background: #25d366;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .whatsapp-float:hover::after {
+            opacity: 1;
         }
 
         @media (max-width: 768px) {
@@ -134,8 +214,10 @@
                         Whether you're planning a trip abroad or need reliable automobile solutions, we've got you covered.
                     </p>
                     <div class="mt-4">
-                        <a href="#booking" class="btn btn-primary btn-lg px-4">Book Now</a>
-                        <a href="#services" class="btn btn-outline-secondary btn-lg px-4 ml-2">Learn More</a>
+                        <a href="https://wa.me/2348062911418?text=Hello%20ST%20FAGOS%2C%20I'm%20interested%20in%20booking%20a%20service.%20Please%20share%20details!" target="_blank" class="btn btn-primary btn-lg px-5 py-3 pulse-btn book-btn mr-3" aria-label="Book Now via WhatsApp">
+                            <i class="fab fa-whatsapp mr-2"></i>Book Now
+                        </a>
+                        <a href="#services" class="btn btn-outline-secondary btn-lg px-4 py-3">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -178,72 +260,259 @@
                 Powering Progress Through Diverse Excellence
             </h2>
 
-            <div class="row g-4">
-                <!-- Education Services -->
-                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
-                    <div class="service-card h-100 p-4 rounded-lg shadow-lg" 
-                         style="background: rgba(255,255,255,0.95);">
-                        <div class="icon-container mb-4 text-primary">
-                            <i class="fas fa-graduation-cap fa-3x"></i>
-                        </div>
-                        <img src="39jVynau78u9oFaqh4nJsfKdwLe9SoIs5WXZ8Rqf.png" 
-                             alt="Education Services" 
-                             class="img-fluid rounded-lg mb-4" 
-                             style="width: 100%; height: 200px; object-fit: cover;">
-                        <h3 class="mb-3 font-weight-bold">Future Shapers Academy</h3>
-                        <p class="lead text-dark mb-4">
-                            Building young minds from cradle to career readiness through our integrated education ecosystem:
-                        </p>
-                        <ul class="list-unstyled">
-                            <li class="mb-2">✓ Premium Nursery-Primary-Secondary Schools</li>
-                            <li class="mb-2">✓ Educational Consultancy Excellence</li>
-                            <li class="mb-2">✓ Curriculum Development Mastery</li>
-                        </ul>
-                    </div>
-                </div>
+            <!-- Category Label Style -->
+            <style>
+                .svc-category {
+                    text-align: center;
+                    margin: 2.5rem 0 1.2rem;
+                    color: rgba(255,255,255,0.6);
+                    font-size: 0.75rem;
+                    font-weight: 700;
+                    letter-spacing: 3px;
+                    text-transform: uppercase;
+                }
+                .svc-category span {
+                    border-bottom: 2px solid rgba(255,255,255,0.25);
+                    padding-bottom: 4px;
+                }
+            </style>
 
-                <!-- Energy Solutions -->
-                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-1s">
-                    <div class="service-card h-100 p-4 rounded-lg shadow-lg" 
-                         style="background: rgba(255,255,255,0.95);">
-                        <div class="icon-container mb-4 text-danger">
-                            <i class="fas fa-gas-pump fa-3x"></i>
+            <!-- ── ENERGY & PROPERTY ── -->
+            <p class="svc-category"><span>Energy &amp; Property</span></p>
+            <div class="row g-4">
+                <!-- Oil & Gas -->
+                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+                    <div class="service-card h-100 p-4 rounded-lg shadow-lg" style="background: rgba(255,255,255,0.95);">
+                        <div class="icon-container mb-4 text-danger"><i class="fas fa-gas-pump fa-3x"></i></div>
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800"
+                             alt="Oil and Gas" class="img-fluid rounded-lg mb-4"
+                             style="width:100%; object-fit:cover;">
+                        <div class="card-overlay">
+                            <div class="rating">★★★★★ 4.9</div>
+                            <h4>Oil &amp; Gas Services</h4>
+                            <p>Premium energy solutions await!</p>
                         </div>
-                        <img src="young-couple-talking-sales-person-car-showroom-768x512.webp" 
-                             alt="Energy Solutions" 
-                             class="img-fluid rounded-lg mb-4" 
-                             style="width: 100%; height: 200px; object-fit: cover;">
-                        <h3 class="mb-3 font-weight-bold">Energy Pioneers Network</h3>
-                        <p class="lead text-dark mb-4">
-                            Fueling industries and homes with seamless energy solutions:
-                        </p>
+                        <h3 class="mb-3 font-weight-bold">Oil &amp; Gas Services</h3>
+                        <p class="lead text-dark mb-4">Fueling industries and homes with seamless energy solutions:</p>
                         <ul class="list-unstyled">
                             <li class="mb-2">✓ Premium Petroleum Products Distribution</li>
                             <li class="mb-2">✓ Industrial-Grade Lubricants Supply</li>
-                            <li class="mb-2">✓ Smart Gas Solutions & Safety Management</li>
+                            <li class="mb-2">✓ Smart Gas Solutions &amp; Safety Management</li>
                         </ul>
+                        <div class="rating mt-3">★★★★★ 4.9</div>
+                        <a href="https://wa.me/2348062911418?text=Hi%20ST%20FAGOS%2C%20tell%20me%20more%20about%20your%20Oil%20%26%20Gas%20Services!" target="_blank" class="btn book-btn btn-block mt-3">
+                            <i class="fab fa-whatsapp mr-2"></i>Book Oil &amp; Gas Service
+                        </a>
                     </div>
                 </div>
-
-                <!-- Real Estate Mastery -->
-                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-2s">
-                    <div class="service-card h-100 p-4 rounded-lg shadow-lg" 
-                         style="background: rgba(255,255,255,0.95);">
-                        <div class="icon-container mb-4 text-success">
-                            <i class="fas fa-building fa-3x"></i>
+                <!-- Real Estate -->
+                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="service-card h-100 p-4 rounded-lg shadow-lg" style="background: rgba(255,255,255,0.95);">
+                        <div class="icon-container mb-4 text-success"><i class="fas fa-building fa-3x"></i></div>
+                        <img src="ProfessionalServicesCareer-1536x1056.jpg"
+                             alt="Real Estate" class="img-fluid rounded-lg mb-4"
+                             style="width:100%; object-fit:cover;">
+                        <div class="card-overlay">
+                            <div class="rating">★★★★☆ 4.8</div>
+                            <h4>Real Estate Development</h4>
+                            <p>Strategic property innovation!</p>
                         </div>
-                        <img src="ProfessionalServicesCareer-1536x1056.jpg" 
-                             alt="Real Estate Mastery" 
-                             class="img-fluid rounded-lg mb-4" 
-                             style="width: 100%; height: 200px; object-fit: cover;">
-                        <h3 class="mb-3 font-weight-bold">Space Crafters Consortium</h3>
-                        <p class="lead text-dark mb-4">
-                            Creating value through strategic property innovation:
-                        </p>
+                        <h3 class="mb-3 font-weight-bold">Real Estate Development &amp; Management</h3>
+                        <p class="lead text-dark mb-4">Creating value through strategic property innovation:</p>
                         <ul class="list-unstyled">
                             <li class="mb-2">✓ End-to-End Property Lifecycle Management</li>
                             <li class="mb-2">✓ Smart Urban Development Solutions</li>
                             <li class="mb-2">✓ Commercial/Residential Asset Optimization</li>
+                        </ul>
+                        <div class="rating mt-3">★★★★☆ 4.8</div>
+                        <a href="https://wa.me/2348062911418?text=Hi%20ST%20FAGOS%2C%20interested%20in%20Real%20Estate%20Development%20%26%20Management!" target="_blank" class="btn book-btn btn-block mt-3">
+                            <i class="fab fa-whatsapp mr-2"></i>Book Real Estate Service
+                        </a>
+                    </div>
+                </div>
+                <!-- General Contracting -->
+                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="service-card h-100 p-4 rounded-lg shadow-lg" style="background: rgba(255,255,255,0.95);">
+                        <div class="icon-container mb-4 text-warning"><i class="fas fa-hard-hat fa-3x"></i></div>
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800"
+                             alt="General Contracting" class="img-fluid rounded-lg mb-4"
+                             style="width:100%; object-fit:cover;">
+                        <div class="card-overlay">
+                            <div class="rating">★★★★★ 4.7</div>
+                            <h4>General Contracting</h4>
+                            <p>Civil &amp; structural excellence!</p>
+                        </div>
+                        <h3 class="mb-3 font-weight-bold">General Contracting Services</h3>
+                        <p class="lead text-dark mb-4">Civil and structural contracting for every scale:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ Commercial &amp; Residential Construction</li>
+                            <li class="mb-2">✓ Infrastructure &amp; Civil Works</li>
+                            <li class="mb-2">✓ Project Management &amp; Supervision</li>
+                        </ul>
+                        <div class="rating mt-3">★★★★★ 4.7</div>
+                        <a href="https://wa.me/2348062911418?text=Hi%20ST%20FAGOS%2C%20need%20General%20Contracting%20Services!" target="_blank" class="btn book-btn btn-block mt-3">
+                            <i class="fab fa-whatsapp mr-2"></i>Book Contracting Service
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── LOGISTICS & TRADE ── -->
+            <p class="svc-category"><span>Logistics &amp; Trade</span></p>
+            <div class="row g-4">
+                <!-- Procurement & Logistics -->
+                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+                    <div class="service-card h-100 p-4 rounded-lg shadow-lg" style="background: rgba(255,255,255,0.95);">
+                        <div class="icon-container mb-4 text-primary"><i class="fas fa-boxes fa-3x"></i></div>
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800"
+                             alt="Procurement and Logistics" class="img-fluid rounded-lg mb-4"
+                             style="width:100%; object-fit:cover;">
+                        <div class="card-overlay">
+                            <div class="rating">★★★★☆ 4.8</div>
+                            <h4>Procurement &amp; Logistics</h4>
+                            <p>End-to-end supply chain mastery!</p>
+                        </div>
+                        <h3 class="mb-3 font-weight-bold">Procurement &amp; Logistics Services</h3>
+                        <p class="lead text-dark mb-4">End-to-end supply chain and last-mile delivery:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ Strategic Sourcing &amp; Procurement</li>
+                            <li class="mb-2">✓ Warehousing &amp; Inventory Management</li>
+                            <li class="mb-2">✓ Nationwide Last-Mile Logistics</li>
+                        </ul>
+                        <div class="rating mt-3">★★★★☆ 4.8</div>
+                        <a href="https://wa.me/2348062911418?text=Hi%20ST%20FAGOS%2C%20interested%20in%20Procurement%20%26%20Logistics%20Services!" target="_blank" class="btn book-btn btn-block mt-3">
+                            <i class="fab fa-whatsapp mr-2"></i>Book Logistics Service
+                        </a>
+                    </div>
+                </div>
+                <!-- Import & Export of Automobiles -->
+                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="service-card h-100 p-4 rounded-lg shadow-lg" style="background: rgba(255,255,255,0.95);">
+                        <div class="icon-container mb-4 text-danger"><i class="fas fa-car fa-3x"></i></div>
+                        <img src="young-couple-talking-sales-person-car-showroom-768x512.webp"
+                             alt="Import and Export of Automobiles" class="img-fluid rounded-lg mb-4"
+                             style="width:100%; object-fit:cover;">
+                        <div class="card-overlay">
+                            <div class="rating">★★★★★ 4.9</div>
+                            <h4>Automobile Import/Export</h4>
+                            <p>Premium vehicles sourced globally!</p>
+                        </div>
+                        <h3 class="mb-3 font-weight-bold">Import &amp; Export of Automobiles</h3>
+                        <p class="lead text-dark mb-4">Sourcing and shipping vehicles across borders:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ New &amp; Used Vehicle Importation</li>
+                            <li class="mb-2">✓ Full Customs Clearance Support</li>
+                            <li class="mb-2">✓ Competitive Pricing &amp; Trade-In Options</li>
+                        </ul>
+                        <div class="rating mt-3">★★★★★ 4.9</div>
+                        <a href="https://wa.me/2348062911418?text=Hi%20ST%20FAGOS%2C%20tell%20me%20about%20Import%20%26%20Export%20of%20Automobiles!" target="_blank" class="btn book-btn btn-block mt-3">
+                            <i class="fab fa-whatsapp mr-2"></i>Book Automobile Service
+                        </a>
+                    </div>
+                </div>
+                <!-- Transportation (Fagos Drive) -->
+                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="service-card h-100 p-4 rounded-lg shadow-lg" style="background: rgba(255,255,255,0.95);">
+                        <div class="icon-container mb-4 text-success"><i class="fas fa-shuttle-van fa-3x"></i></div>
+                        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800"
+                             alt="Transportation" class="img-fluid rounded-lg mb-4"
+                             style="width:100%;height:200px;object-fit:cover;">
+                        <h3 class="mb-3 font-weight-bold">Fagos Drive – Transportation</h3>
+                        <p class="lead text-dark mb-4">Reliable passenger and corporate transport solutions:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ Corporate &amp; Executive Transfers</li>
+                            <li class="mb-2">✓ Intercity &amp; Airport Shuttle Services</li>
+                            <li class="mb-2">✓ Fleet Hire &amp; Long-Term Contracts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── TRAVEL & TOURISM ── -->
+            <p class="svc-category"><span>Travel &amp; Tourism</span></p>
+            <div class="row g-4">
+                <!-- Fagos Travels & Tours -->
+                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+                    <div class="service-card h-100 p-4 rounded-lg shadow-lg" style="background: rgba(255,255,255,0.95);">
+                        <div class="icon-container mb-4 text-primary"><i class="fas fa-globe-africa fa-3x"></i></div>
+                        <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=800"
+                             alt="Travel and Tourism" class="img-fluid rounded-lg mb-4"
+                             style="width:100%;height:200px;object-fit:cover;">
+                        <h3 class="mb-3 font-weight-bold">Fagos Travels &amp; Tours</h3>
+                        <p class="lead text-dark mb-4">Full-service travel packages for leisure and business:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ Holiday &amp; Leisure Tour Packages</li>
+                            <li class="mb-2">✓ Visa Processing &amp; Travel Advisory</li>
+                            <li class="mb-2">✓ Hotel &amp; Accommodation Booking</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Aero Booking -->
+                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="service-card h-100 p-4 rounded-lg shadow-lg" style="background: rgba(255,255,255,0.95);">
+                        <div class="icon-container mb-4 text-danger"><i class="fas fa-plane fa-3x"></i></div>
+                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800"
+                             alt="Airline Ticketing" class="img-fluid rounded-lg mb-4"
+                             style="width:100%;height:200px;object-fit:cover;">
+                        <h3 class="mb-3 font-weight-bold">Aero Booking – Airline Ticketing</h3>
+                        <p class="lead text-dark mb-4">Seamless flight booking for every destination:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ Domestic &amp; International Tickets</li>
+                            <li class="mb-2">✓ Group &amp; Corporate Bookings</li>
+                            <li class="mb-2">✓ 24/7 Booking Support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── FOOD & EDUCATION ── -->
+            <p class="svc-category"><span>Food &amp; Education</span></p>
+            <div class="row g-4">
+                <!-- Food Packaging & Distribution -->
+                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+                    <div class="service-card h-100 p-4 rounded-lg shadow-lg" style="background: rgba(255,255,255,0.95);">
+                        <div class="icon-container mb-4 text-warning"><i class="fas fa-box-open fa-3x"></i></div>
+                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800"
+                             alt="Food Packaging" class="img-fluid rounded-lg mb-4"
+                             style="width:100%;height:200px;object-fit:cover;">
+                        <h3 class="mb-3 font-weight-bold">Food Packaging &amp; Distribution</h3>
+                        <p class="lead text-dark mb-4">Hygienic packaging and nationwide food distribution:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ NAFDAC-Compliant Packaging Standards</li>
+                            <li class="mb-2">✓ Cold-Chain &amp; Dry Goods Distribution</li>
+                            <li class="mb-2">✓ Retail &amp; Wholesale Supply</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Fagos Foods – Meat Processing -->
+                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="service-card h-100 p-4 rounded-lg shadow-lg" style="background: rgba(255,255,255,0.95);">
+                        <div class="icon-container mb-4 text-danger"><i class="fas fa-drumstick-bite fa-3x"></i></div>
+                        <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=800"
+                             alt="Meat Processing" class="img-fluid rounded-lg mb-4"
+                             style="width:100%;height:200px;object-fit:cover;">
+                        <h3 class="mb-3 font-weight-bold">Fagos Foods – Meat Processing &amp; Sales</h3>
+                        <p class="lead text-dark mb-4">Quality cow meat processing and retail distribution:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ Hygienic Slaughter &amp; Processing</li>
+                            <li class="mb-2">✓ Retail &amp; Bulk Meat Sales</li>
+                            <li class="mb-2">✓ Cold Storage &amp; Delivery</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Education -->
+                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="service-card h-100 p-4 rounded-lg shadow-lg" style="background: rgba(255,255,255,0.95);">
+                        <div class="icon-container mb-4 text-primary"><i class="fas fa-graduation-cap fa-3x"></i></div>
+                        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800"
+                             alt="Education Services" class="img-fluid rounded-lg mb-4"
+                             style="width:100%;height:200px;object-fit:cover;">
+                        <h3 class="mb-3 font-weight-bold">Future Shapers Academy</h3>
+                        <p class="lead text-dark mb-4">Building young minds from cradle to career readiness:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ Premium Nursery-Primary-Secondary Schools</li>
+                            <li class="mb-2">✓ Educational Consultancy Excellence</li>
+                            <li class="mb-2">✓ Curriculum Development Mastery</li>
                         </ul>
                     </div>
                 </div>
@@ -256,35 +525,10 @@
                     <a href="#contact" class="btn btn-light btn-lg px-5 py-3 rounded-pill shadow">
                         Partner With Us <i class="fas fa-handshake ms-2"></i>
                     </a>
-                    <a href="#services" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill shadow">
-                        Explore All Solutions <i class="fas fa-compass ms-2"></i>
+                    <a href="https://wa.me/2349132182581?text=Hello%20ST%20FAGOS%2C%20I'm%20exploring%20your%20services!" class="btn btn-success btn-lg px-5 py-3 rounded-pill shadow book-btn pulse-btn">
+                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp Now
                     </a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="text-center bg-light py-5">
-        <div class="container">
-            <h2>What Our Clients Say</h2>
-            <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <p class="testimonial">"Great service, very professional!" - John Doe</p>
-                    </div>
-                    <div class="carousel-item">
-                        <p class="testimonial">"I highly recommend their visa processing services." - Jane Smith</p>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
         </div>
     </section>
@@ -318,7 +562,7 @@
                 <h4>Our Office</h4>
                 <p>Block 2, Flat 6, Birth Road, University of Ibadan, Ibadan.</p>
                 <p>Email: contact@stfagos.com</p>
-                <p>Phone: +234 812 871 5316</p>
+                <p>Phone: +234 806 291 1418 | +234 913 218 2581</p>
 
                 <!-- Embedded Google Map -->
                 <div class="map-container" style="overflow: hidden; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
@@ -337,7 +581,7 @@
     </section>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/2348128715316" target="_blank" class="whatsapp-float">
+    <a href="https://wa.me/2348062911418" target="_blank" class="whatsapp-float">
         <img src="https://cdn-icons-png.flaticon.com/128/733/733585.png" alt="WhatsApp Chat">
     </a>
 
